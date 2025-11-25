@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:yum_quick/utils/routes/route_name.dart';
+import 'package:yum_quick/view/auth/login_view.dart';
+import 'package:yum_quick/view/auth/signup_view.dart';
+import 'package:yum_quick/view/home/home_view.dart';
+import 'package:yum_quick/view/splash/splash_view.dart';
+import 'package:yum_quick/view/splash/welcom_view.dart';
+
+class Routes {
+  static Route<MaterialPageRoute>? onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case RouteName.splash:
+        return pushTo(SplashView());
+      case RouteName.welcome:
+        return pushTo(WelcomView());
+      case RouteName.logIn:
+        return pushTo(LoginView());
+      case RouteName.signUp:
+        return pushTo(SignupView());
+      case RouteName.homeView:
+        return pushTo(HomeView());  
+
+      default:
+        pushTo(Scaffold(body: Center(child: Text('No Route Define'))));
+    }
+    return null;
+  }
+
+  static Route<MaterialPageRoute<dynamic>>? pushTo(Widget screen) =>
+      MaterialPageRoute(builder: (context) => screen);
+}
