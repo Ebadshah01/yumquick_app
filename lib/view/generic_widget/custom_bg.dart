@@ -36,7 +36,7 @@ class CustomBg extends StatelessWidget {
             children: [
               Icon(Icons.arrow_back_ios,color: themeSecondaryColor,),
               SizedBox(width: 120.w,),
-              Text(label!,style: context.titleLarge.copyWith(
+              Text(label ?? '',style: context.titleLarge.copyWith(
                 color: themeWhiteColor
               ),)
             ],

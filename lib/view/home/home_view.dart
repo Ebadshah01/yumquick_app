@@ -109,6 +109,31 @@ class HomeView extends StatelessWidget {
           },
         ],
       },
+
+       {
+        'icon': 'assets/icons/drinks.svg',
+        'title': 'Drinks',
+        'images': [
+          {
+            'url': 'assets/images/mojito.png',
+            'name': ' Mojito',
+            'rating': '5.0',
+            'price': '\$15.00',
+            'description':
+            'Made with white rum, fresh mint leaves, lime juice, simple syrup, and a splash of soda water.'
+          },
+          {
+            'url': 'assets/images/coffee.png',
+            'name': 'Iced Coffee',
+            'rating': '5.0',
+            'price': '\$12.99',
+            'description':
+                'Delicate vanilla and chocolate macarons, featuring a crisp outer shell and a smooth.',
+          },
+        ],
+      },
+     
+   
     ];
 
     final bestSellerList = [
@@ -217,7 +242,7 @@ class HomeView extends StatelessWidget {
               foodCategory: foodCategory,
             ).paddingOnly(top: 20.h, left: 20.w, right: 20.w),
             foodCategoryModel.selectedIndex == -1
-                ? DashboardContent(bestSellerList: bestSellerList).paddingSymmetric(horizontal: 20.w)
+                ? DashboardContent(bestSellerList: bestSellerList).paddingSymmetric(horizontal:20.w)
                 : Expanded(
                     child: CategoryItems(
                       foodCategory: foodCategory,

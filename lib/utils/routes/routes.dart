@@ -3,6 +3,7 @@ import 'package:yum_quick/utils/routes/route_name.dart';
 import 'package:yum_quick/view/auth/login_view.dart';
 import 'package:yum_quick/view/auth/signup_view.dart';
 import 'package:yum_quick/view/home/home_view.dart';
+import 'package:yum_quick/view/splash/on_boarding/on_boarding_view.dart';
 import 'package:yum_quick/view/splash/splash_view.dart';
 import 'package:yum_quick/view/splash/welcom_view.dart';
 
@@ -19,6 +20,8 @@ class Routes {
         return pushTo(SignupView());
       case RouteName.homeView:
         return pushTo(HomeView());  
+        case RouteName.onBoarding:
+        return pushTo(OnBoardingView());  
 
       default:
         pushTo(Scaffold(body: Center(child: Text('No Route Define'))));

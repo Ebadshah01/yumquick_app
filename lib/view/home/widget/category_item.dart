@@ -13,7 +13,7 @@ class CategoryItems extends StatelessWidget {
     required this.foodCategoryModel,
   });
 
-  final List<Map<String, Object>> foodCategory;
+  final List<Map<String, dynamic>> foodCategory;
   final FoodCategoryModel foodCategoryModel;
 
   @override

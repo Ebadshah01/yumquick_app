@@ -21,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
     
     Future.delayed(const Duration(seconds: 3), () {
       // ignore: use_build_context_synchronously
-      Navigator.pushNamed(context, RouteName.welcome);      
+      Navigator.pushNamed(context, RouteName.onBoarding);      
     });
   }
 

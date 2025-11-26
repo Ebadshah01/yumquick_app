@@ -18,8 +18,7 @@ class LoginView extends StatelessWidget {
       {'icon': 'assets/icons/gmail.svg'},
       {'icon': 'assets/icons/facebook.svg'},
       {'icon': 'assets/icons/finger_print.svg'},
-      {'icon' : 'assets/icons/drinks.svg'}
-      
+     
     ];
     return Scaffold(
       backgroundColor: themePrimaryColor,
