@@ -22,5 +22,7 @@ class AppIcons {
 
 class AppImages {
   final String appLogg = 'assets/images/splash_logo.svg';
+  final String circularIcon = 'assets/icons/circular_icon.svg';
+  final String halfCircle = 'assets/icons/half_circle.svg';
   
 }

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:yum_quick/utils/routes/route_name.dart';
 import 'package:yum_quick/utils/routes/routes.dart';
 import 'package:yum_quick/view/view_model/bottomnavbar_provider.dart';
+import 'package:yum_quick/view/view_model/carousel_slider_provider.dart';
 import 'package:yum_quick/view/view_model/food_category_model.dart';
 import 'package:yum_quick/view/view_model/visiblity_model.dart';
 
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => VisibilityModel()),
         ChangeNotifierProvider(create: (_) => FoodCategoryModel()),
-        ChangeNotifierProvider(create: (_) => BottomNavProvider())
+        ChangeNotifierProvider(create: (_) => BottomNavProvider()),
+        ChangeNotifierProvider(create: (_) => CarouselSliderProvider()),
       ],
       child: ScreenUtilInit(
         designSize:  Size(375, 812),

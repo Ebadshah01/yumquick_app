@@ -35,9 +35,10 @@ class CustomBg extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Icon(Icons.arrow_back_ios,color: themeSecondaryColor,),
-              SizedBox(width: 120.w,),
-              Text(label ?? '',style: context.titleLarge.copyWith(
-                color: themeWhiteColor
+              SizedBox(width: 100.w,),
+              Text(label ?? '',style: context.headlineLarge.copyWith(
+                color: themeWhiteColor,
+                fontWeight: FontWeight.bold,
               ),)
             ],
           ).paddingSymmetric(horizontal: 20.w),

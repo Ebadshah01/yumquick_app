@@ -47,6 +47,7 @@ dependencies:
   lucide_icons: ^0.257.0
   fl_chart: ^0.70.0
   flutter_calendar_carousel: ^2.5.4
+  carousel_slider: ^5.1.1
 
 dev_dependencies:
   flutter_test:

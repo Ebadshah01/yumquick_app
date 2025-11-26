@@ -57,6 +57,7 @@ class FoodCategoryRow extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40.r),
                           // ignore: deprecated_member_use
                           color: isSelected
+                              // ignore: deprecated_member_use
                               ? themePrimaryColor.withOpacity(0.8)
                               : Color(0xffF3E9B5),
                         ),

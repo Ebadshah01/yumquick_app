@@ -35,6 +35,7 @@ class _SplashViewState extends State<SplashView> {
         children: [
           SvgPicture.asset(
             AppAssets.images.appLogg,
+            // ignore: deprecated_member_use
             color: themeSecondaryColor,
           ),
           10.h.verticalSpace,

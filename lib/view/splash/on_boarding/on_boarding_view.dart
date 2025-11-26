@@ -120,6 +120,7 @@ class OnBoardingView extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: index == i
                             ? themeSecondaryColor
+                            // ignore: deprecated_member_use
                             : themeSecondaryColor.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(20.r),
                       ),

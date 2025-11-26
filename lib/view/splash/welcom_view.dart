@@ -18,6 +18,7 @@ class WelcomView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // ignore: deprecated_member_use
           SvgPicture.asset(AppAssets.images.appLogg, color: themePrimaryColor),
           20.h.verticalSpace,
           Row(
