@@ -14,8 +14,8 @@ class CustomBg extends StatelessWidget {
   final double? menuContainerHeight;
   const CustomBg({
     super.key,
-    this.topContainerHeight = 180,
-    this.topContainerOverlap = 20,
+    this.topContainerHeight = 200,
+    this.topContainerOverlap = 50,
     required this.child,
     this.topRow,
      this.label,

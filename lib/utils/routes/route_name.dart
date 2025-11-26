@@ -5,4 +5,5 @@ class RouteName {
   static const String signUp = 'Signup';
   static const String homeView = 'HomeView';
   static const String onBoarding = 'OnBoardingView';
+  static const String navBarView = 'NavBarView';
 }

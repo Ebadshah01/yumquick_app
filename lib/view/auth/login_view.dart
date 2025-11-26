@@ -62,7 +62,7 @@ class LoginView extends StatelessWidget {
                 child: CustomNavButton(
                   title: 'Log In',
                   onTap: () {
-                    Navigator.pushNamed(context, RouteName.homeView);
+                    Navigator.pushNamed(context, RouteName.navBarView);
                   },
                   width: 150.w,
                 ),

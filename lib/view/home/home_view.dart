@@ -153,88 +153,90 @@ class HomeView extends StatelessWidget {
         //  topContainerHeight: 200.h,
         topRow: SizedBox(
           width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 30.h,
-                    width: 180.w,
-                    decoration: BoxDecoration(
-                      color: themeWhiteColor,
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        suffixIcon: Icon(
-                          Icons.format_list_bulleted_sharp,
-                          color: themeSecondaryColor,
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 30.h,
+                      width: 180.w,
+                      decoration: BoxDecoration(
+                        color: themeWhiteColor,
+                        borderRadius: BorderRadius.circular(20.r),
+                      ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.format_list_bulleted_sharp,
+                            color: themeSecondaryColor,
+                          ),
+                          hintText: 'Search',
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 12.w,
+                            vertical: 8.h,
+                          ),
+                          border: InputBorder.none,
                         ),
-                        hintText: 'Search',
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 12.w,
-                          vertical: 8.h,
-                        ),
-                        border: InputBorder.none,
                       ),
                     ),
-                  ),
-
-                  6.h.verticalSpace,
-
-                  SizedBox(width: 20.w),
-                  Container(
-                    height: 30.h,
-                    width: 30.w,
-                    decoration: BoxDecoration(
-                      color: themeWhiteColor,
-                      borderRadius: BorderRadius.circular(10.r),
+            
+                    6.h.verticalSpace,
+            
+                    SizedBox(width: 20.w),
+                    Container(
+                      height: 30.h,
+                      width: 30.w,
+                      decoration: BoxDecoration(
+                        color: themeWhiteColor,
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                      child: SvgPicture.asset(
+                        AppAssets.icon.shoppingIcon,
+                      ).paddingAll(5),
                     ),
-                    child: SvgPicture.asset(
-                      AppAssets.icon.shoppingIcon,
-                    ).paddingAll(5),
-                  ),
-                  5.w.horizontalSpace,
-                  Container(
-                    height: 30.h,
-                    width: 30.w,
-                    decoration: BoxDecoration(
-                      color: themeWhiteColor,
-                      borderRadius: BorderRadius.circular(10.r),
+                    5.w.horizontalSpace,
+                    Container(
+                      height: 30.h,
+                      width: 30.w,
+                      decoration: BoxDecoration(
+                        color: themeWhiteColor,
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                      child: SvgPicture.asset(
+                        AppAssets.icon.notifyIcon,
+                      ).paddingAll(5),
                     ),
-                    child: SvgPicture.asset(
-                      AppAssets.icon.notifyIcon,
-                    ).paddingAll(5),
-                  ),
-                  5.w.horizontalSpace,
-                  Container(
-                    height: 30.h,
-                    width: 30.w,
-                    decoration: BoxDecoration(
-                      color: themeWhiteColor,
-                      borderRadius: BorderRadius.circular(10.r),
+                    5.w.horizontalSpace,
+                    Container(
+                      height: 30.h,
+                      width: 30.w,
+                      decoration: BoxDecoration(
+                        color: themeWhiteColor,
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                      child: SvgPicture.asset(
+                        AppAssets.icon.profileIcon,
+                      ).paddingAll(5),
                     ),
-                    child: SvgPicture.asset(
-                      AppAssets.icon.profileIcon,
-                    ).paddingAll(5),
-                  ),
-                ],
-              ),
-              10.h.verticalSpace,
-              Text(
-                'Good Morning',
-                style: context.headlineMedium.copyWith(color: themeWhiteColor),
-              ),
-              Text(
-                "Rise and shine! It's breakfast time",
-                style: context.labelMedium.copyWith(color: themeSecondaryColor),
-              ),
-            ],
-          ).paddingSymmetric(horizontal: 20.w),
+                  ],
+                ),
+                10.h.verticalSpace,
+                Text(
+                  'Good Morning',
+                  style: context.headlineMedium.copyWith(color: themeWhiteColor),
+                ),
+                Text(
+                  "Rise and shine! It's breakfast time",
+                  style: context.labelMedium.copyWith(color: themeSecondaryColor),
+                ),
+              ],
+            ).paddingSymmetric(horizontal: 20.w),
+          ),
         ),
         child: Column(
           children: [
