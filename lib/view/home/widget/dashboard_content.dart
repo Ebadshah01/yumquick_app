@@ -83,7 +83,6 @@ class DashboardContent extends StatelessWidget {
             },
           ),
         ),
-
         20.h.verticalSpace,
         DiscountContainer(carouselProvider: carouselProvider),
              

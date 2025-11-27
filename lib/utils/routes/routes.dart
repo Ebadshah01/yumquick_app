@@ -3,6 +3,7 @@ import 'package:yum_quick/utils/routes/route_name.dart';
 import 'package:yum_quick/view/auth/login_view.dart';
 import 'package:yum_quick/view/auth/signup_view.dart';
 import 'package:yum_quick/view/home/home_view.dart';
+import 'package:yum_quick/view/my_order/my_order_view.dart';
 import 'package:yum_quick/view/nav_bar/nav_bar_view.dart';
 import 'package:yum_quick/view/splash/on_boarding/on_boarding_view.dart';
 import 'package:yum_quick/view/splash/splash_view.dart';
@@ -20,11 +21,13 @@ class Routes {
       case RouteName.signUp:
         return pushTo(SignupView());
       case RouteName.homeView:
-        return pushTo(HomeView());  
-        case RouteName.onBoarding:
-        return pushTo(OnBoardingView());  
-        case RouteName.navBarView:
-        return pushTo(NavBarView());  
+        return pushTo(HomeView());
+      case RouteName.onBoarding:
+        return pushTo(OnBoardingView());
+      case RouteName.navBarView:
+        return pushTo(NavBarView());
+      case RouteName.myOrders:
+        return pushTo(MyOrderView());
 
       default:
         pushTo(Scaffold(body: Center(child: Text('No Route Define'))));

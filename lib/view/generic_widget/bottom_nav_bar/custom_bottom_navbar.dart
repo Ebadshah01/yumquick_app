@@ -23,22 +23,23 @@ class CustomBottomNavBar extends StatelessWidget {
     final navProvider = Provider.of<BottomNavProvider>(context);
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(60.r),
+      
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(20.r),topRight: Radius.circular(20.r)),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
 
         child: Container(
         //  height: 50.h,
-          margin: EdgeInsets.only(left: 10, right: 10, bottom: 15).w,
+        //  margin: EdgeInsets.only(left: 10, right: 10, bottom: 15).w,
           padding: const EdgeInsets.symmetric(vertical: 10).w,
           decoration: BoxDecoration(
             color: themeSecondaryColor,
             //  context.onPrimary.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(60.r),
+          //  borderRadius: BorderRadius.circular(60.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withAlpha(20),
-                blurRadius: 20,
+               // blurRadius: 20,
                 spreadRadius: 10,
                 // offset: Offset(0, -2),
               ),
@@ -57,7 +58,7 @@ class CustomBottomNavBar extends StatelessWidget {
               );
             }),
           ),
-        ).paddingOnly(bottom: 2.h),
+        ).paddingOnly(bottom: 0.h),
       ),
     );
   }

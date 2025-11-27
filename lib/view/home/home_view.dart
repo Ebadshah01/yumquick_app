@@ -4,10 +4,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:yum_quick/resources/app_assets.dart';
 import 'package:yum_quick/resources/extension/context_extension.dart';
+import 'package:yum_quick/resources/extension/custom_inkwell.dart';
 import 'package:yum_quick/resources/extension/custom_padding.dart';
 import 'package:yum_quick/resources/theme/color_scheme.dart';
 import 'package:yum_quick/view/generic_widget/custom_bg.dart';
 import 'package:yum_quick/view/home/widget/category_item.dart';
+import 'package:yum_quick/view/home/widget/custom_drawer.dart';
 import 'package:yum_quick/view/home/widget/dashboard_content.dart';
 import 'package:yum_quick/view/home/widget/food_category_row.dart';
 import 'package:yum_quick/view/view_model/food_category_model.dart';
@@ -110,7 +112,7 @@ class HomeView extends StatelessWidget {
         ],
       },
 
-       {
+      {
         'icon': 'assets/icons/drinks.svg',
         'title': 'Drinks',
         'images': [
@@ -120,7 +122,7 @@ class HomeView extends StatelessWidget {
             'rating': '5.0',
             'price': '\$15.00',
             'description':
-            'Made with white rum, fresh mint leaves, lime juice, simple syrup, and a splash of soda water.'
+                'Made with white rum, fresh mint leaves, lime juice, simple syrup, and a splash of soda water.',
           },
           {
             'url': 'assets/images/coffee.png',
@@ -132,8 +134,6 @@ class HomeView extends StatelessWidget {
           },
         ],
       },
-     
-   
     ];
 
     final bestSellerList = [
@@ -142,9 +142,9 @@ class HomeView extends StatelessWidget {
       {'price': '\$12.3', 'img': 'assets/images/bestseller4.png'},
       {'price': '\$99.9', 'img': 'assets/images/bestseller1.svg'},
     ];
-    
 
     return Scaffold(
+      endDrawer: CustomDrawer(),
       body: CustomBg(
         // menuContainerHeight: 200,
         menuContainer: foodCategoryModel.selectedIndex == -1
@@ -184,9 +184,9 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                     ),
-            
+
                     6.h.verticalSpace,
-            
+
                     SizedBox(width: 20.w),
                     Container(
                       height: 30.h,
@@ -212,27 +212,39 @@ class HomeView extends StatelessWidget {
                       ).paddingAll(5),
                     ),
                     5.w.horizontalSpace,
-                    Container(
-                      height: 30.h,
-                      width: 30.w,
-                      decoration: BoxDecoration(
-                        color: themeWhiteColor,
-                        borderRadius: BorderRadius.circular(10.r),
-                      ),
-                      child: SvgPicture.asset(
-                        AppAssets.icon.profileIcon,
-                      ).paddingAll(5),
+                    Builder(
+                      builder: (context) {
+                        return Container(
+                          height: 30.h,
+                          width: 30.w,
+                          decoration: BoxDecoration(
+                            color: themeWhiteColor,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: SvgPicture.asset(
+                            AppAssets.icon.profileIcon,
+                          ).paddingAll(5),
+                        ).inkWell(
+                          onTap: () {
+                            Scaffold.of(context).openEndDrawer();
+                          },
+                        );
+                      },
                     ),
                   ],
                 ),
                 10.h.verticalSpace,
                 Text(
                   'Good Morning',
-                  style: context.headlineMedium.copyWith(color: themeWhiteColor),
+                  style: context.headlineMedium.copyWith(
+                    color: themeWhiteColor,
+                  ),
                 ),
                 Text(
                   "Rise and shine! It's breakfast time",
-                  style: context.labelMedium.copyWith(color: themeSecondaryColor),
+                  style: context.labelMedium.copyWith(
+                    color: themeSecondaryColor,
+                  ),
                 ),
               ],
             ).paddingSymmetric(horizontal: 20.w),
@@ -244,7 +256,9 @@ class HomeView extends StatelessWidget {
               foodCategory: foodCategory,
             ).paddingOnly(top: 20.h, left: 20.w, right: 20.w),
             foodCategoryModel.selectedIndex == -1
-                ? DashboardContent(bestSellerList: bestSellerList).paddingSymmetric(horizontal:20.w)
+                ? DashboardContent(
+                    bestSellerList: bestSellerList,
+                  ).paddingSymmetric(horizontal: 20.w)
                 : Expanded(
                     child: CategoryItems(
                       foodCategory: foodCategory,
