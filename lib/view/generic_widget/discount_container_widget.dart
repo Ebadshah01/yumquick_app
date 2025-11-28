@@ -61,7 +61,6 @@ class DiscountContainer extends StatelessWidget {
                         bottom: 0,
                         left: 0.w,
                         child: SvgPicture.asset(AppAssets.images.halfCircle)),
-             
               ],
             ),
         
@@ -88,6 +87,7 @@ class DiscountContainer extends StatelessWidget {
                     viewportFraction: 1,
                     onPageChanged: (index, reason) {
                       carouselProvider.updateIndex(index);
+                      // ignore: invalid_use_of_protected_member
                       carouselProvider.notifyListeners(); 
                     },
                   ),
@@ -120,3 +120,4 @@ class DiscountContainer extends StatelessWidget {
     );
   }
 }
+ 

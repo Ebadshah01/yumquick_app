@@ -36,7 +36,7 @@ class CustomDrawer extends StatelessWidget {
           }, context: context),
           Divider(color: themeWhiteColor),
           _drawerContent(Icons.shopping_bag_outlined, 'My Profile', () {
-            //   Navigator.pushNamed(context, RouteName.);
+               Navigator.pushNamed(context, RouteName.profile);
           }, context: context),
           Divider(color: themeWhiteColor),
           _drawerContent(Icons.shopping_bag_outlined, 'Delivery Address', () {

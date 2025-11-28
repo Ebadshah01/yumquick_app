@@ -7,4 +7,5 @@ class RouteName {
   static const String onBoarding = 'OnBoardingView';
   static const String navBarView = 'NavBarView';
   static const String myOrders = 'MyOrderView';
+  static const String profile = 'ProfileView';
 }

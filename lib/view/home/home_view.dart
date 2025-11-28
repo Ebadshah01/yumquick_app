@@ -9,7 +9,7 @@ import 'package:yum_quick/resources/extension/custom_padding.dart';
 import 'package:yum_quick/resources/theme/color_scheme.dart';
 import 'package:yum_quick/view/generic_widget/custom_bg.dart';
 import 'package:yum_quick/view/home/widget/category_item.dart';
-import 'package:yum_quick/view/home/widget/custom_drawer.dart';
+import 'package:yum_quick/view/generic_widget/custom_drawer.dart';
 import 'package:yum_quick/view/home/widget/dashboard_content.dart';
 import 'package:yum_quick/view/home/widget/food_category_row.dart';
 import 'package:yum_quick/view/view_model/food_category_model.dart';
@@ -200,17 +200,26 @@ class HomeView extends StatelessWidget {
                       ).paddingAll(5),
                     ),
                     5.w.horizontalSpace,
-                    Container(
-                      height: 30.h,
-                      width: 30.w,
-                      decoration: BoxDecoration(
-                        color: themeWhiteColor,
-                        borderRadius: BorderRadius.circular(10.r),
-                      ),
-                      child: SvgPicture.asset(
-                        AppAssets.icon.notifyIcon,
-                      ).paddingAll(5),
+                     Builder(
+                      builder: (context) {
+                        return Container(
+                          height: 30.h,
+                          width: 30.w,
+                          decoration: BoxDecoration(
+                            color: themeWhiteColor,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: SvgPicture.asset(
+                            AppAssets.icon.notifyIcon,
+                          ).paddingAll(5),
+                        ).inkWell(
+                          onTap: () {
+                            Scaffold.of(context).openEndDrawer();
+                          },
+                        );
+                      },
                     ),
+                 
                     5.w.horizontalSpace,
                     Builder(
                       builder: (context) {
