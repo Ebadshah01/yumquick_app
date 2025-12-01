@@ -50,7 +50,8 @@ class CustomTextField extends StatelessWidget {
                     , color: themeSecondaryColor))
                 : null,
             hintText: hint,
-            hintStyle: TextStyle(color: themeGreyColor),
+            // ignore: deprecated_member_use
+            hintStyle: TextStyle(color: themeBlackColor.withOpacity(0.6)),
             filled: true,
             // ignore: deprecated_member_use
             fillColor: themePrimaryColor.withOpacity(0.3),

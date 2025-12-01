@@ -17,7 +17,12 @@ class CustomDrawer extends StatelessWidget {
         children: [
           ListTile(
             contentPadding: EdgeInsets.zero,
-            leading: CircleAvatar(radius: 25.r),
+            leading: CircleAvatar(
+              radius: 25.r,
+              backgroundImage: NetworkImage(
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV1hGOaznLG5xZaijiaxEbWxTUrtPJKADWSw&s',
+              ),
+            ),
             title: Text(
               'Ebad Ali',
               style: context.headlineSmall.copyWith(
@@ -32,11 +37,11 @@ class CustomDrawer extends StatelessWidget {
           ),
           20.h.verticalSpace,
           _drawerContent(Icons.shopping_bag_outlined, 'My Orders', () {
-              Navigator.pushNamed(context, RouteName.myOrders);
+            Navigator.pushNamed(context, RouteName.myOrders);
           }, context: context),
           Divider(color: themeWhiteColor),
           _drawerContent(Icons.shopping_bag_outlined, 'My Profile', () {
-               Navigator.pushNamed(context, RouteName.profile);
+            Navigator.pushNamed(context, RouteName.profile);
           }, context: context),
           Divider(color: themeWhiteColor),
           _drawerContent(Icons.shopping_bag_outlined, 'Delivery Address', () {

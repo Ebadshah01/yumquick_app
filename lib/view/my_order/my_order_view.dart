@@ -6,6 +6,7 @@ import 'package:yum_quick/resources/extension/custom_inkwell.dart';
 import 'package:yum_quick/resources/extension/custom_padding.dart';
 import 'package:yum_quick/resources/theme/color_scheme.dart';
 import 'package:yum_quick/view/generic_widget/custom_bg.dart';
+import 'package:yum_quick/view/generic_widget/custom_nav_button.dart';
 import 'package:yum_quick/view/view_model/order_status_model.dart';
 
 class MyOrderView extends StatelessWidget {
@@ -44,7 +45,7 @@ class MyOrderView extends StatelessWidget {
             'time': '15 Nov, 15:20 pm',
             'items': '4 items',
           },
-           {
+          {
             'imgUrl': 'assets/images/on_boarding3.png',
             'title': 'Bean and Vegetable Burger',
             'price': '\$80.00',
@@ -53,10 +54,10 @@ class MyOrderView extends StatelessWidget {
           },
         ],
       },
-      {'status': 'Cancelled', 
-       'order': [
-
-        {
+      {
+        'status': 'Cancelled',
+        'order': [
+          {
             'imgUrl': 'assets/images/on_boarding.png',
             'title': 'Strawberry shake',
             'price': '\$20.00',
@@ -71,7 +72,6 @@ class MyOrderView extends StatelessWidget {
             'items': '2 items',
           },
         ],
-      
       },
     ];
     //    final List<Map<String,dynamic>> orderList;
@@ -96,6 +96,7 @@ class MyOrderView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20.r),
                         color: isSelected
                             ? themeSecondaryColor
+                            // ignore: deprecated_member_use
                             : themeSecondaryColor.withOpacity(0.2),
                       ),
                       child: Center(
@@ -119,69 +120,11 @@ class MyOrderView extends StatelessWidget {
             ),
 
             10.h.verticalSpace,
-                    Divider(color: themeSecondaryColor, thickness: 0.5).paddingSymmetric(horizontal: 20.w),
+            Divider(
+              color: themeSecondaryColor,
+              thickness: 0.5,
+            ).paddingSymmetric(horizontal: 20.w),
 
-            // ListView.builder(
-            //   shrinkWrap: true,
-            //   itemCount: currentOrders.length,
-            //   itemBuilder: (context, index) {
-            //     final orders = currentOrders[index];
-            //     return Column(
-            //       children: [
-            //         Divider(color: themeSecondaryColor, thickness: 0.5),
-            //         Row(
-            //           crossAxisAlignment: CrossAxisAlignment.center,
-            //           children: [
-            //             Container(
-            //               height: 90.h,
-            //               width: 60.w,
-            //               decoration: BoxDecoration(
-            //                 borderRadius: BorderRadius.circular(10.r),
-            //                 image: DecorationImage(
-            //                   image: AssetImage(orders['imgUrl']),
-            //                   fit: BoxFit.cover,
-            //                 ),
-            //               ),
-            //             ),
-            //             10.w.horizontalSpace,
-            //             Expanded(
-            //               child: Column(
-            //                 mainAxisAlignment: MainAxisAlignment.start,
-            //                 crossAxisAlignment: CrossAxisAlignment.start,
-            //                 children: [
-            //                   Text(
-            //                     orders['title'],
-            //                     style: context.titleLarge,
-            //                     overflow: TextOverflow.ellipsis,
-            //                     maxLines: 1,
-            //                   ),
-            //                   Text(orders['time'], style: context.labelMedium),
-            //                 ],
-            //               ),
-            //             ),
-            //             //  10.w.horizontalSpace,
-            //             Spacer(),
-            //             Column(
-            //               mainAxisAlignment: MainAxisAlignment.start,
-            //               crossAxisAlignment: CrossAxisAlignment.end,
-            //               children: [
-            //                 Text(
-            //                   orders['price'],
-            //                   style: context.titleMedium.copyWith(
-            //                     color: themeSecondaryColor,
-            //                     fontWeight: FontWeight.bold,
-            //                   ),
-            //                 ),
-            //                 Text(orders['items'], style: context.labelMedium),
-            //               ],
-            //             ),
-            //           ],
-            //         ),
-            //         10.h.verticalSpace,
-            //       ],
-            //     );
-            //   },
-            // ).paddingSymmetric(horizontal: 20.w),
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -191,7 +134,6 @@ class MyOrderView extends StatelessWidget {
 
                 return Column(
                   children: [
-
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -238,7 +180,6 @@ class MyOrderView extends StatelessWidget {
 
                               5.h.verticalSpace,
 
-                              // 🔵 TIME + ITEMS ROW
                               Row(
                                 children: [
                                   Expanded(
@@ -256,11 +197,80 @@ class MyOrderView extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                              5.h.verticalSpace,
+                              if (orderStatusModel.selectedIndex == 0)
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    CustomNavButton(
+                                      height: 25.h,
+                                      labelSize: 13,
+                                      title: 'Cancel Order',
+                                      onTap: () {},
+                                    ),
+                                    CustomNavButton(
+                                      height: 25.h,
+                                      labelSize: 13,
+                                      title: 'Track Driver',
+                                      onTap: () {},
+                                      bgColor: themeSecondaryColor.withOpacity(
+                                        0.3,
+                                      ),
+                                      titColor: themeSecondaryColor,
+                                    ),
+                                  ],
+                                )
+                              else
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.done_all,
+                                          color: themeSecondaryColor,
+                                          size: 15.sp,
+                                        ),
+                                        Text(
+                                          'Order Delivered',
+                                          style: TextStyle(
+                                            color: themeSecondaryColor,
+                                            fontSize: 13.sp
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    5.h.verticalSpace,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        CustomNavButton(
+                                          height: 25.h,
+                                          labelSize: 13,
+                                          title: 'Leave a review',
+                                          onTap: () {},
+                                        ),
+                                        CustomNavButton(
+                                          height: 25.h,
+                                          labelSize: 13,
+                                          title: 'Order Again',
+                                          onTap: () {},
+                                          bgColor: themeSecondaryColor
+                                              .withOpacity(0.3),
+                                          titColor: themeSecondaryColor,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                             ],
                           ),
                         ),
                       ],
                     ),
+                    5.h.verticalSpace,
                     Divider(color: themeSecondaryColor, thickness: 0.5),
 
                     10.h.verticalSpace,

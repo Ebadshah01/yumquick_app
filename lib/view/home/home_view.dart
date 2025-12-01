@@ -150,7 +150,7 @@ class HomeView extends StatelessWidget {
         menuContainer: foodCategoryModel.selectedIndex == -1
             ? themeWhiteColor
             : themeSecondaryColor,
-        //  topContainerHeight: 200.h,
+          topContainerHeight: 190.h,
         topRow: SizedBox(
           width: double.infinity,
           child: SafeArea(
@@ -158,6 +158,7 @@ class HomeView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                10.h.verticalSpace,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -184,9 +185,9 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                     ),
-
+            
                     6.h.verticalSpace,
-
+            
                     SizedBox(width: 20.w),
                     Container(
                       height: 30.h,
@@ -263,11 +264,12 @@ class HomeView extends StatelessWidget {
           children: [
             FoodCategoryRow(
               foodCategory: foodCategory,
-            ).paddingOnly(top: 20.h, left: 20.w, right: 20.w),
+            ).paddingOnly(top: 20.h, left: 0.w, right: 0.w),
             foodCategoryModel.selectedIndex == -1
                 ? DashboardContent(
                     bestSellerList: bestSellerList,
-                  ).paddingSymmetric(horizontal: 20.w)
+                  )
+                  //.paddingSymmetric(horizontal: 20.w)
                 : Expanded(
                     child: CategoryItems(
                       foodCategory: foodCategory,

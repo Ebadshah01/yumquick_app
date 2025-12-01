@@ -39,7 +39,7 @@ class OnBoardingView extends StatelessWidget {
 
   void _nextPage(BuildContext context) {
     if (selectedIndex.value == _pages.length - 1) {
-      Navigator.pushReplacementNamed(context, RouteName.logIn);
+      Navigator.pushReplacementNamed(context, RouteName.welcome);
     } else {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),

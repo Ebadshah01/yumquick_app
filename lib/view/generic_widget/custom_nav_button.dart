@@ -10,6 +10,7 @@ class CustomNavButton extends StatelessWidget {
   final Color? titColor;
   final double? height;
   final double?width;
+  final double? labelSize;
    final VoidCallback onTap;
    const CustomNavButton({super.key,
    this.bgColor = themeSecondaryColor,
@@ -17,7 +18,8 @@ class CustomNavButton extends StatelessWidget {
    this.titColor = themeWhiteColor,
    this.height,
    this.width,
-   required this.onTap
+   required this.onTap,
+   this.labelSize ,
   });
 
   @override
@@ -33,7 +35,7 @@ class CustomNavButton extends StatelessWidget {
       child: Center(
         child: Text(
           title,
-          style: context.titleMedium.copyWith(color: titColor),
+          style: context.titleMedium.copyWith(color: titColor,fontSize: labelSize ),
         ),
       ),
     ).gestureDetector(

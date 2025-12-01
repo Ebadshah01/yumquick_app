@@ -21,17 +21,19 @@ class ProfileView extends StatelessWidget {
               20.h.verticalSpace,
               Stack(
                 children: [
-                  Container(
-                    height: 120.h,
-                    width: 120.w,
-                    decoration: BoxDecoration(
-                    
-                      borderRadius: BorderRadius.circular(10.r),
-                      color: themePrimaryColor,
+                
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10.r),
+                    child: Image(
+                      image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV1hGOaznLG5xZaijiaxEbWxTUrtPJKADWSw&s',
+                        
+                      ),height: 120.h,
+                      width: 120.w,
+                      fit: BoxFit.fill,
                     ),
-                    child:  //Icon(Icons.tag_faces_sharp),
-                    Image(image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV1hGOaznLG5xZaijiaxEbWxTUrtPJKADWSw&s'),fit: BoxFit.fill,)
                   ),
+
                   Container(
                     height: 30.h,
                     width: 30.w,
@@ -49,37 +51,38 @@ class ProfileView extends StatelessWidget {
               10.h.verticalSpace,
               CustomTextField(label: 'Full Name', hint: 'Ebad Ali'),
               10.h.verticalSpace,
-          
+
               CustomTextField(
                 label: 'Date of Birth',
                 hint: '19/07/2007',
                 keyboardType: TextInputType.number,
               ),
               10.h.verticalSpace,
-          
+
               CustomTextField(
                 label: 'Email',
                 hint: 'ebadshah@gmail.com',
                 keyboardType: TextInputType.emailAddress,
               ),
               10.h.verticalSpace,
-          
-              CustomTextField(
-                label: 'Full Name',
-                hint: 'Ebad Ali',
-                keyboardType: TextInputType.name,
-              ),
-              10.h.verticalSpace,
-          
+
               CustomTextField(
                 label: 'Phone Number',
                 hint: '+92 3093125130',
                 keyboardType: TextInputType.number,
               ),
               20.h.verticalSpace,
-              CustomNavButton(title: 'Update Profile', onTap: () {
-                Navigator.pushNamedAndRemoveUntil(context, RouteName.navBarView, (route) => false);
-              },width: 150.w,)
+              CustomNavButton(
+                title: 'Update Profile',
+                onTap: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    RouteName.navBarView,
+                    (route) => false,
+                  );
+                },
+                width: 150.w,
+              ),
             ],
           ).paddingSymmetric(horizontal: 20.w),
         ),

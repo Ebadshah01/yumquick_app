@@ -94,7 +94,7 @@ class LoginView extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an account?",
+                    "Don't have an account? ",
                     style: context.labelLarge.copyWith(color: themeGreyColor),
                   ), Text(
                     "Sign Up",

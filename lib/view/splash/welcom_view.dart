@@ -40,7 +40,7 @@ class WelcomView extends StatelessWidget {
               ),
             ],
           ),
-                    20.h.verticalSpace,
+          20.h.verticalSpace,
 
           Text(
             'Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed do eiusmod.',
@@ -64,7 +64,7 @@ class WelcomView extends StatelessWidget {
             width: 150.w,
             titColor: themeSecondaryColor,
             onTap: () {
-              
+              Navigator.pushNamed(context, RouteName.logIn);
             },
           ),
         ],

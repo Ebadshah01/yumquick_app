@@ -36,7 +36,7 @@ class DashboardContent extends StatelessWidget {
               size: 15.sp,
             ),
           ],
-        ),
+        ).paddingSymmetric(horizontal: 20.w),
         10.h.verticalSpace,
         SizedBox(
           height: 120,
@@ -79,12 +79,13 @@ class DashboardContent extends StatelessWidget {
                     ),
                   ),
                 ],
-              ).paddingOnly(right: 15.w);
+              ).paddingOnly(left: 20.w);
             },
           ),
         ),
         20.h.verticalSpace,
-        DiscountContainer(carouselProvider: carouselProvider),
+        DiscountContainer(carouselProvider: carouselProvider).paddingSymmetric(horizontal: 20.w),
+      //   RecommendList()
              
       ],
     );
