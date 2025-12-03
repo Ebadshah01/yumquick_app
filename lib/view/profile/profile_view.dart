@@ -24,13 +24,16 @@ class ProfileView extends StatelessWidget {
                 
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10.r),
-                    child: Image(
-                      image: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV1hGOaznLG5xZaijiaxEbWxTUrtPJKADWSw&s',
-                        
-                      ),height: 120.h,
-                      width: 120.w,
-                      fit: BoxFit.fill,
+                    child: Hero(
+                      tag: 'profile image',
+                      child: Image(
+                        image: NetworkImage(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV1hGOaznLG5xZaijiaxEbWxTUrtPJKADWSw&s',
+                          
+                        ),height: 120.h,
+                        width: 120.w,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
 

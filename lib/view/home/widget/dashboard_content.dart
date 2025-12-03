@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:yum_quick/resources/extension/context_extension.dart';
+import 'package:yum_quick/resources/extension/custom_inkwell.dart';
 import 'package:yum_quick/resources/extension/custom_padding.dart';
 import 'package:yum_quick/resources/theme/color_scheme.dart';
 import 'package:yum_quick/view/generic_widget/discount_container_widget.dart';
+import 'package:yum_quick/view/items_details_screen/items_details_screen.dart';
 import 'package:yum_quick/view/view_model/carousel_slider_provider.dart';
 
 class DashboardContent extends StatelessWidget {
@@ -57,7 +59,18 @@ class DashboardContent extends StatelessWidget {
                       //   image: AssetImage(bestItems['img']!),
                       // ),
                     ),
-                    child: Image.asset(bestItems['img']!, fit: BoxFit.fill),
+                    child: Hero(
+                      tag:  bestItems['img']!, 
+                      child: Image.asset(bestItems['img']!, fit: BoxFit.fill)),
+                  ).gestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ItemsDetailsScreen(item: bestItems)
+                        ),
+                      );
+                    },
                   ),
                   Positioned(
                     right: 0,
@@ -79,14 +92,16 @@ class DashboardContent extends StatelessWidget {
                     ),
                   ),
                 ],
-              ).paddingOnly(left: 20.w);
+              ).paddingOnly(left: 15.w);
             },
           ),
         ),
         20.h.verticalSpace,
-        DiscountContainer(carouselProvider: carouselProvider).paddingSymmetric(horizontal: 20.w),
-      //   RecommendList()
-             
+        DiscountContainer(
+          carouselProvider: carouselProvider,
+        ).paddingSymmetric(horizontal: 20.w),
+
+        //  RecommendList()
       ],
     );
   }

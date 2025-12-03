@@ -5,6 +5,7 @@ import 'package:yum_quick/resources/extension/context_extension.dart';
 import 'package:yum_quick/resources/extension/custom_inkwell.dart';
 import 'package:yum_quick/resources/extension/custom_padding.dart';
 import 'package:yum_quick/resources/theme/color_scheme.dart';
+import 'package:yum_quick/utils/routes/route_name.dart';
 import 'package:yum_quick/view/generic_widget/custom_bg.dart';
 import 'package:yum_quick/view/generic_widget/custom_nav_button.dart';
 import 'package:yum_quick/view/view_model/order_status_model.dart';
@@ -135,11 +136,11 @@ class MyOrderView extends StatelessWidget {
                 return Column(
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          height: 90.h,
-                          width: 60.w,
+                          height: 100.h,
+                          width: 70.w,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.r),
                             image: DecorationImage(
@@ -207,13 +208,16 @@ class MyOrderView extends StatelessWidget {
                                       height: 25.h,
                                       labelSize: 13,
                                       title: 'Cancel Order',
-                                      onTap: () {},
+                                      onTap: () {
+                                        Navigator.pushNamed(context, RouteName.cancelView);
+                                      },
                                     ),
                                     CustomNavButton(
                                       height: 25.h,
                                       labelSize: 13,
                                       title: 'Track Driver',
                                       onTap: () {},
+                                      // ignore: deprecated_member_use
                                       bgColor: themeSecondaryColor.withOpacity(
                                         0.3,
                                       ),

@@ -9,19 +9,21 @@ class CustomBg extends StatelessWidget {
   final double topContainerHeight;
   final double topContainerOverlap;
   final Widget child;
-  final Widget? topRow; 
+  final Widget? topRow;
   final String? label;
   final Color? menuContainer;
   final double? menuContainerHeight;
+  final Widget? action;
   const CustomBg({
     super.key,
     this.topContainerHeight = 200,
     this.topContainerOverlap = 50,
     required this.child,
     this.topRow,
-     this.label,
-     this.menuContainer =themeWhiteColor,
-     this.menuContainerHeight,
+    this.label,
+    this.menuContainer = themeWhiteColor,
+    this.menuContainerHeight,
+     this.action,
   });
 
   @override
@@ -32,26 +34,44 @@ class CustomBg extends StatelessWidget {
           height: topContainerHeight.h,
           width: double.infinity,
           color: themePrimaryColor,
-          child: topRow ?? Row(mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(Icons.arrow_back_ios,color: themeSecondaryColor,).gestureDetector(onTap: () {
-                Navigator.pop(context);
-              },),
-              SizedBox(width: 100.w,),
-              Text(label ?? '',style: context.headlineLarge.copyWith(
-                color: themeWhiteColor,
-                fontWeight: FontWeight.bold,
-              ),)
-            ],
-          ).paddingSymmetric(horizontal: 20.w),
+          child:
+              topRow ??
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios,
+                    color: themeSecondaryColor,
+                  ).gestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+             //     SizedBox(width: 70.w),
+                  Text(
+                    label ?? '',
+                    style: context.headlineLarge.copyWith(
+                      fontSize: 24.sp,
+                      color: themeWhiteColor,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Spacer(),
+                  SizedBox(
+                    child: action,
+                  )
+
+                ],
+              ).paddingSymmetric(horizontal: 20.w),
         ),
 
         Container(
           height: menuContainerHeight ?? double.infinity,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: menuContainer ,
+            color: menuContainer,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30.r),
               topRight: Radius.circular(30.r),
@@ -59,7 +79,6 @@ class CustomBg extends StatelessWidget {
           ),
           child: child,
         ).paddingOnly(top: topContainerHeight - topContainerOverlap),
-
       ],
     );
   }

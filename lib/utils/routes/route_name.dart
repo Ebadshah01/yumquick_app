@@ -8,4 +8,5 @@ class RouteName {
   static const String navBarView = 'NavBarView';
   static const String myOrders = 'MyOrderView';
   static const String profile = 'ProfileView';
+  static const String cancelView = 'CancelView'; 
 }

@@ -4,8 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:yum_quick/utils/routes/route_name.dart';
 import 'package:yum_quick/utils/routes/routes.dart';
 import 'package:yum_quick/view/view_model/bottomnavbar_provider.dart';
+import 'package:yum_quick/view/view_model/cancel_reason_model.dart';
 import 'package:yum_quick/view/view_model/carousel_slider_provider.dart';
+import 'package:yum_quick/view/view_model/favorite_items.dart';
 import 'package:yum_quick/view/view_model/food_category_model.dart';
+import 'package:yum_quick/view/view_model/item_quantity_model.dart';
 import 'package:yum_quick/view/view_model/order_status_model.dart';
 import 'package:yum_quick/view/view_model/visiblity_model.dart';
 
@@ -26,6 +29,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => BottomNavProvider()),
         ChangeNotifierProvider(create: (_) => CarouselSliderProvider()),
         ChangeNotifierProvider(create: (_) => OrderStatusModel()),
+        ChangeNotifierProvider(create: (_) => FavoriteItems()),
+        ChangeNotifierProvider(create: (_) => ItemQuantityModel()),
+        ChangeNotifierProvider(create: (_) => CancelReasonModel()),
       ],
       child: ScreenUtilInit(
         designSize: Size(375, 812),

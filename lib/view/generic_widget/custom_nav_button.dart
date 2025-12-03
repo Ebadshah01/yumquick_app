@@ -9,17 +9,22 @@ class CustomNavButton extends StatelessWidget {
   final String title;
   final Color? titColor;
   final double? height;
-  final double?width;
+  final double? width;
   final double? labelSize;
-   final VoidCallback onTap;
-   const CustomNavButton({super.key,
-   this.bgColor = themeSecondaryColor,
-   required this.title,
-   this.titColor = themeWhiteColor,
-   this.height,
-   this.width,
-   required this.onTap,
-   this.labelSize ,
+  final VoidCallback onTap;
+  final bool isIcon;
+  final IconData? icon;
+  const CustomNavButton({
+    super.key,
+    this.bgColor = themeSecondaryColor,
+    required this.title,
+    this.titColor = themeWhiteColor,
+    this.height,
+    this.width,
+    required this.onTap,
+    this.labelSize,
+    this.isIcon = false,
+    this.icon,
   });
 
   @override
@@ -32,14 +37,23 @@ class CustomNavButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(40.r),
         color: bgColor,
       ),
-      child: Center(
-        child: Text(
-          title,
-          style: context.titleMedium.copyWith(color: titColor,fontSize: labelSize ),
-        ),
+      child: Row(crossAxisAlignment:  CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          isIcon ?
+         Icon(icon, size: 25.sp, color: themeWhiteColor) : Text(''),
+        //  10.w.horizontalSpace,
+          Center(
+            child: Text(
+              title,
+              style: context.titleMedium.copyWith(
+                color: titColor,
+                fontSize: labelSize,
+              ),
+            ),
+          ),
+        ],
       ),
-    ).gestureDetector(
-      onTap: onTap
-    );
+    ).gestureDetector(onTap: onTap);
   }
 }

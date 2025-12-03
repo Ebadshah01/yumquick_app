@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputType keyboardType;
   // final bool obscureText;
   final bool isSuffixIcon;
+  final int? maxLines;
 
   const CustomTextField({
     super.key,
@@ -21,6 +22,7 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     //  this.obscureText = false,
     this.isSuffixIcon = false,
+    this.maxLines= 1,
   });
 
   @override
@@ -34,6 +36,7 @@ class CustomTextField extends StatelessWidget {
         6.h.verticalSpace,
 
         TextFormField(
+          maxLines: maxLines,
           controller: controller,
           keyboardType: keyboardType,
 

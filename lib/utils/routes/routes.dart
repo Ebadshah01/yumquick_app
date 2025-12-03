@@ -4,6 +4,7 @@ import 'package:yum_quick/view/auth/login_view.dart';
 import 'package:yum_quick/view/auth/signup_view.dart';
 import 'package:yum_quick/view/home/home_view.dart';
 import 'package:yum_quick/view/my_order/my_order_view.dart';
+import 'package:yum_quick/view/my_order/order_sub_view.dart/cancel_view.dart';
 import 'package:yum_quick/view/nav_bar/nav_bar_view.dart';
 import 'package:yum_quick/view/profile/profile_view.dart';
 import 'package:yum_quick/view/splash/on_boarding/on_boarding_view.dart';
@@ -29,8 +30,10 @@ class Routes {
         return pushTo(NavBarView());
       case RouteName.myOrders:
         return pushTo(MyOrderView());
-        case RouteName.profile:
+      case RouteName.profile:
         return pushTo(ProfileView());
+      case RouteName.cancelView:
+        return pushTo(CancelView());
 
       default:
         pushTo(Scaffold(body: Center(child: Text('No Route Define'))));

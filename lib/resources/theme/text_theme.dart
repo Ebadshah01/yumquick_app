@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yum_quick/resources/theme/color_scheme.dart';
 
 class AppText {
+  
   static TextTheme theme(ColorScheme scheme) {
     return TextTheme(
       headlineLarge: TextStyle(

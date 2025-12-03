@@ -40,7 +40,7 @@ class RecommendList extends StatelessWidget {
   ];
     return GridView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+   //   physics: NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         
         crossAxisCount: 2,

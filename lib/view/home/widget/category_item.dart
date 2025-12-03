@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yum_quick/resources/extension/context_extension.dart';
+import 'package:yum_quick/resources/extension/custom_inkwell.dart';
 import 'package:yum_quick/resources/extension/custom_padding.dart';
 import 'package:yum_quick/resources/theme/color_scheme.dart';
+import 'package:yum_quick/view/items_details_screen/category_items_details.dart';
 import 'package:yum_quick/view/view_model/food_category_model.dart';
 
 class CategoryItems extends StatelessWidget {
@@ -35,17 +36,16 @@ class CategoryItems extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemCount:
-                  (foodCategory[foodCategoryModel
-                              .selectedIndex]['images']
+                  (foodCategory[foodCategoryModel.selectedIndex]['images']
                           as List)
                       .length,
               itemBuilder: (context, index) {
                 final List images =
-                    foodCategory[foodCategoryModel
-                            .selectedIndex]['images']
+                    foodCategory[foodCategoryModel.selectedIndex]['images']
                         as List;
-                final Map imgData = images[index] as Map;
-    
+                final Map<String, dynamic> imgData =
+                    images[index] as Map<String, dynamic>;
+
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -53,14 +53,26 @@ class CategoryItems extends StatelessWidget {
                       height: 180,
                       width: double.infinity,
                       margin: EdgeInsets.only(bottom: 12),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            imgData['url'],
-                          ), // ← ONLY IMAGE
-                          fit: BoxFit.cover,
-                        ),
+                      // decoration: BoxDecoration(
+                      //   image: DecorationImage(
+                      //     image: AssetImage(),
+                      //     fit: BoxFit.cover,
+                      //   ),
+                      // ),
+                      child: Hero(
+                        tag: imgData['url'],
+                        child: Image.asset(imgData['url'], fit: BoxFit.cover),
                       ),
+                    ).gestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                CategoryItemsDetails(items: imgData),
+                          ),
+                        );
+                      },
                     ),
                     Row(
                       children: [
@@ -73,21 +85,17 @@ class CategoryItems extends StatelessWidget {
                         10.w.horizontalSpace,
                         Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              20.r,
-                            ),
+                            borderRadius: BorderRadius.circular(20.r),
                             color: themeSecondaryColor,
                           ),
                           child: Row(
-                            crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 imgData['rating'],
-                                style: context.titleSmall
-                                    .copyWith(
-                                      color: themeWhiteColor,
-                                    ),
+                                style: context.titleSmall.copyWith(
+                                  color: themeWhiteColor,
+                                ),
                               ),
                               Icon(
                                 Icons.star,
@@ -101,7 +109,7 @@ class CategoryItems extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            imgData['price'],
+                            "\$${imgData['price'].toString()}",
                             style: context.titleMedium.copyWith(
                               color: themeSecondaryColor,
                             ),
@@ -116,7 +124,7 @@ class CategoryItems extends StatelessWidget {
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Divider(color: themeSecondaryColor,),
+                    Divider(color: themeSecondaryColor),
                     10.h.verticalSpace,
                   ],
                 );

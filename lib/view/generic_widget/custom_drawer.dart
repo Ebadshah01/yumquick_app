@@ -17,10 +17,13 @@ class CustomDrawer extends StatelessWidget {
         children: [
           ListTile(
             contentPadding: EdgeInsets.zero,
-            leading: CircleAvatar(
-              radius: 25.r,
-              backgroundImage: NetworkImage(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV1hGOaznLG5xZaijiaxEbWxTUrtPJKADWSw&s',
+            leading: Hero(
+              tag: 'profile image',
+              child: CircleAvatar(
+                radius: 25.r,
+                backgroundImage: NetworkImage(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV1hGOaznLG5xZaijiaxEbWxTUrtPJKADWSw&s',
+                ),
               ),
             ),
             title: Text(
@@ -34,33 +37,35 @@ class CustomDrawer extends StatelessWidget {
               'eali64695@gmail.com',
               style: context.titleSmall.copyWith(color: themeWhiteColor),
             ),
-          ),
+          ).inkWell(onTap: (){
+            Navigator.pushNamed(context, RouteName.profile);
+          }),
           20.h.verticalSpace,
           _drawerContent(Icons.shopping_bag_outlined, 'My Orders', () {
             Navigator.pushNamed(context, RouteName.myOrders);
           }, context: context),
           Divider(color: themeWhiteColor),
-          _drawerContent(Icons.shopping_bag_outlined, 'My Profile', () {
+          _drawerContent(Icons.person, 'My Profile', () {
             Navigator.pushNamed(context, RouteName.profile);
           }, context: context),
           Divider(color: themeWhiteColor),
-          _drawerContent(Icons.shopping_bag_outlined, 'Delivery Address', () {
+          _drawerContent(Icons.location_on_outlined, 'Delivery Address', () {
             //   Navigator.pushNamed(context, RouteName.);
           }, context: context),
           Divider(color: themeWhiteColor),
-          _drawerContent(Icons.shopping_bag_outlined, 'Payment Methods', () {
+          _drawerContent(Icons.payment_sharp, 'Payment Methods', () {
             //   Navigator.pushNamed(context, RouteName.);
           }, context: context),
           Divider(color: themeWhiteColor),
-          _drawerContent(Icons.shopping_bag_outlined, 'Contact Us', () {
+          _drawerContent(Icons.call, 'Contact Us', () {
             //   Navigator.pushNamed(context, RouteName.);
           }, context: context),
           Divider(color: themeWhiteColor),
-          _drawerContent(Icons.shopping_bag_outlined, 'Help & FAQs', () {
+          _drawerContent(Icons.chat_sharp, 'Help & FAQs', () {
             //   Navigator.pushNamed(context, RouteName.);
           }, context: context),
           Divider(color: themeWhiteColor),
-          _drawerContent(Icons.shopping_bag_outlined, 'Settings', () {
+          _drawerContent(Icons.settings, 'Settings', () {
             //   Navigator.pushNamed(context, RouteName.);
           }, context: context),
           Divider(color: themeWhiteColor),
