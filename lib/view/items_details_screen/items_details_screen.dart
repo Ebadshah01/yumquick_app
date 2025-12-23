@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ItemsDetailsScreen extends StatelessWidget {
-   final Map<String, String> item;
+   final Map<String, dynamic> item;
 
   const ItemsDetailsScreen({super.key, required this.item});
 

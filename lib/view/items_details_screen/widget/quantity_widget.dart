@@ -20,6 +20,7 @@ class QuantityWidget extends StatelessWidget {
           () {
             quantityProvider.decrease();
           },
+          // ignore: deprecated_member_use
           themeSecondaryColor.withOpacity(0.4),
         ),10.w.horizontalSpace,
         Text(quantityProvider.quantity.toString(),style: context.titleLarge,),

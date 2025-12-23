@@ -19,6 +19,7 @@ class FoodCategoryRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      // color: Colors.black,
       height: 90.h,
       child: Consumer<FoodCategoryModel>(
         builder: (context, value, child) {
@@ -26,7 +27,7 @@ class FoodCategoryRow extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             
             shrinkWrap: true,
-            primary: false,
+            // primary: false,
             itemCount: foodCategory.length,
             itemBuilder: (context, index) {
               final category = foodCategory[index];

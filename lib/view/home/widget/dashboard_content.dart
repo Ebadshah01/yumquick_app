@@ -5,18 +5,21 @@ import 'package:yum_quick/resources/extension/context_extension.dart';
 import 'package:yum_quick/resources/extension/custom_inkwell.dart';
 import 'package:yum_quick/resources/extension/custom_padding.dart';
 import 'package:yum_quick/resources/theme/color_scheme.dart';
+import 'package:yum_quick/view/best_seller/best_seller.dart';
 import 'package:yum_quick/view/generic_widget/discount_container_widget.dart';
 import 'package:yum_quick/view/items_details_screen/items_details_screen.dart';
 import 'package:yum_quick/view/view_model/carousel_slider_provider.dart';
 
 class DashboardContent extends StatelessWidget {
-  const DashboardContent({super.key, required this.bestSellerList});
+  final List<Map<String,dynamic>> foodCategory;
+  const DashboardContent({super.key, required this.bestSellerList, required this.foodCategory});
 
-  final List<Map<String, String>> bestSellerList;
+  final List<Map<String, dynamic>> bestSellerList;
 
   @override
   Widget build(BuildContext context) {
-    final carouselProvider = Provider.of<CarouselSliderProvider>(context);
+    // final carouselProvider = Provider.of<CarouselSliderProvider>(context);
+  //  print('object');
     return Column(
       children: [
         Divider(color: themeSecondaryColor),
@@ -27,15 +30,23 @@ class DashboardContent extends StatelessWidget {
               'Best Seller',
               style: context.titleLarge.copyWith(fontWeight: FontWeight.bold),
             ),
-            Spacer(),
-            Text(
-              'View All',
-              style: context.bodyMedium.copyWith(color: themeSecondaryColor),
-            ),
-            Icon(
-              Icons.arrow_forward_ios_rounded,
-              color: themeSecondaryColor,
-              size: 15.sp,
+            Expanded(
+              child: Row(
+                children: [
+                  Spacer(),
+                  Text(
+                    'View All',
+                    style: context.bodyMedium.copyWith(color: themeSecondaryColor),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: themeSecondaryColor,
+                    size: 15.sp,
+                  ),
+                ],
+              ).inkWell(onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BestSeller(foodCategories:foodCategory,)));
+              }),
             ),
           ],
         ).paddingSymmetric(horizontal: 20.w),
@@ -84,11 +95,11 @@ class DashboardContent extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        bestItems['price']!,
-                        style: context.titleMedium.copyWith(
+                        "\$${bestItems['price'].toString()}",
+                        style: context.titleSmall.copyWith(
                           color: themeWhiteColor,
                         ),
-                      ),
+                      ).paddingAll(4),
                     ),
                   ),
                 ],
@@ -97,9 +108,13 @@ class DashboardContent extends StatelessWidget {
           ),
         ),
         20.h.verticalSpace,
-        DiscountContainer(
-          carouselProvider: carouselProvider,
-        ).paddingSymmetric(horizontal: 20.w),
+        Consumer<CarouselSliderProvider>(
+          builder: (context, vm, _) {
+            return DiscountContainer(
+              carouselProvider: vm,
+            ).paddingSymmetric(horizontal: 20.w);
+          }
+        ),
 
         //  RecommendList()
       ],

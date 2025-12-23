@@ -34,6 +34,9 @@ class Routes {
         return pushTo(ProfileView());
       case RouteName.cancelView:
         return pushTo(CancelView());
+      // case RouteName.bestSeller:
+      //   return pushTo(BestSeller());
+      
 
       default:
         pushTo(Scaffold(body: Center(child: Text('No Route Define'))));

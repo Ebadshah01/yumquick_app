@@ -132,7 +132,7 @@ class CategoryItems extends StatelessWidget {
             ),
           ),
         ],
-      ).paddingOnly(left: 20.w, right: 20.w, top: 20.h),
+      ).paddingOnly(left: 20.w, right: 20.w, top: 0.h,),
     );
   }
 }

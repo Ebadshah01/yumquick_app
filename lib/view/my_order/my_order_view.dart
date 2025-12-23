@@ -205,6 +205,7 @@ class MyOrderView extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     CustomNavButton(
+                                      vertical: 0,
                                       height: 25.h,
                                       labelSize: 13,
                                       title: 'Cancel Order',
@@ -213,6 +214,7 @@ class MyOrderView extends StatelessWidget {
                                       },
                                     ),
                                     CustomNavButton(
+                                       vertical: 0,
                                       height: 25.h,
                                       labelSize: 13,
                                       title: 'Track Driver',
@@ -250,18 +252,19 @@ class MyOrderView extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        CustomNavButton(
+                                        CustomNavButton( vertical: 0,
                                           height: 25.h,
                                           labelSize: 13,
                                           title: 'Leave a review',
                                           onTap: () {},
                                         ),
-                                        CustomNavButton(
+                                        CustomNavButton( vertical: 0,
                                           height: 25.h,
                                           labelSize: 13,
                                           title: 'Order Again',
                                           onTap: () {},
                                           bgColor: themeSecondaryColor
+                                              // ignore: deprecated_member_use
                                               .withOpacity(0.3),
                                           titColor: themeSecondaryColor,
                                         ),

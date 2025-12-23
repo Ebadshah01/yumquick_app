@@ -134,10 +134,10 @@ class HomeView extends StatelessWidget {
     ];
 
     final bestSellerList = [
-      {'price': '\$20.4', 'img': 'assets/images/bestseller2.svg'},
-      {'price': '\$50.0', 'img': 'assets/images/bestseller3.png'},
-      {'price': '\$12.3', 'img': 'assets/images/bestseller4.png'},
-      {'price': '\$99.9', 'img': 'assets/images/bestseller1.svg'},
+      {'price': 20.4, 'img': 'assets/images/bestseller2.svg'},
+      {'price': 50.0, 'img': 'assets/images/bestseller3.png'},
+      {'price': 12.3, 'img': 'assets/images/bestseller4.png'},
+      {'price': 99.9, 'img': 'assets/images/bestseller1.svg'},
     ];
 
     return Scaffold(
@@ -157,6 +157,7 @@ class HomeView extends StatelessWidget {
             foodCategoryModel.selectedIndex == -1
                 ? Expanded(
                   child: DashboardContent(
+                    foodCategory: foodCategory,
                       bestSellerList: bestSellerList,
                     ),
                 )

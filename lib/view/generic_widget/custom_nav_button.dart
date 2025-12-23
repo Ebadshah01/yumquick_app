@@ -14,6 +14,9 @@ class CustomNavButton extends StatelessWidget {
   final VoidCallback onTap;
   final bool isIcon;
   final IconData? icon;
+  final double horizontal;
+  final double vertical;
+
   const CustomNavButton({
     super.key,
     this.bgColor = themeSecondaryColor,
@@ -25,6 +28,8 @@ class CustomNavButton extends StatelessWidget {
     this.labelSize,
     this.isIcon = false,
     this.icon,
+    this.horizontal = 20,
+    this.vertical=5,
   });
 
   @override
@@ -32,7 +37,7 @@ class CustomNavButton extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 20.w),
+      padding: EdgeInsets.symmetric(vertical: vertical.h, horizontal: horizontal.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(40.r),
         color: bgColor,

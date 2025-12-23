@@ -29,8 +29,8 @@ extension ThemeExtensions on BuildContext {
   Color get onSecondary => Theme.of(this).colorScheme.onSecondary;
   Color get error => Theme.of(this).colorScheme.error;
   Color get onError => Theme.of(this).colorScheme.onError;
-  Color get background => Theme.of(this).colorScheme.background;
-  Color get onBackground => Theme.of(this).colorScheme.onBackground;
+  //Color get background => Theme.of(this).colorScheme.background;
+  //Color get onBackground => Theme.of(this).colorScheme.onBackground;
   Color get surface => Theme.of(this).colorScheme.surface;
   Color get onSurface => Theme.of(this).colorScheme.onSurface;
   Color get primaryContainer => Theme.of(this).colorScheme.primaryContainer;
@@ -42,5 +42,5 @@ extension ThemeExtensions on BuildContext {
   Color get shadow => Theme.of(this).colorScheme.shadow;
   Color get outlineVariant => Theme.of(this).colorScheme.outlineVariant;
   Color get inversePrimary => Theme.of(this).colorScheme.inversePrimary;
-  Color get surfaceVariant => Theme.of(this).colorScheme.surfaceVariant;
+//  Color get surfaceVariant => Theme.of(this).colorScheme.surfaceVariant;
 }

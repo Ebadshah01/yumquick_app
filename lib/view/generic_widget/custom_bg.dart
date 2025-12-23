@@ -70,6 +70,7 @@ class CustomBg extends StatelessWidget {
         Container(
           height: menuContainerHeight ?? double.infinity,
           width: double.infinity,
+          // padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: menuContainer,
             borderRadius: BorderRadius.only(
